@@ -50,7 +50,8 @@ pipeline{
             steps {
                 echo 'Deploying....'
                 sh '''
-                    sudo docker run -d -p 81:80 --name apachehmtl httpd
+                    sudo docker build -t reactimage .
+                    sudo docker run --name myreact -d -p 3000:3000 reactimage
                 '''
             }
         }
