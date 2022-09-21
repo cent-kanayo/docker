@@ -12,15 +12,13 @@ pipeline{
                 sh '''
                     
                     sudo ssh -i /var/lib/jenkins/centserver.pem -t -o StrictHostKeyChecking=no ubuntu@ec2-52-91-244-28.compute-1.amazonaws.com
-                    cd /var
-                    sudo mkdir www
-                    cd www
+                    cd /var/www
                     sudo rm -rf html
                     sudo mkdir html
                     cd html
                     sudo git init
                     sudo git config --global --add safe.directory /var/www/html
-                    sudo git remote add origin https://github.com/cent-kanayo/new-test-jenkins.git
+                    sudo git remote add origin https://github.com/cent-kanayo/docker.git
                     sudo git pull origin main
                    
                 '''
